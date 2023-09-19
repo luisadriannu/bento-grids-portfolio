@@ -1,0 +1,26 @@
+---
+import { getInfo } from "../../services/getDataPresence"
+
+const activityPresence = await getInfo();
+
+let spotify = activityPresence.data.spotify;
+---
+
+  <article class="relative flex flex-col justify-between p-3 md:p-7 lg:p-8 rounded-2xl md:col-span-2 col-span-2 row-span-1 overflow-hidden bg-[#0000008f] border-2 dark:border-[#30363D]">
+    <div class="flex flex-col gap-4">
+      <div>
+
+        <svg stroke="currentColor" fill="#159F48" stroke-width="0"  viewBox="0 0 16 16" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z"></path></svg>
+      </div>
+      <div>
+
+        <p class="text-[#ffffff] font-bold text-xs lg:text-2xl md:text-xl">{spotify === null ? "Escuchado recientemente:" : "Escuchando ahora:"}</p>
+        <div class="flex flex-col gap-2">
+          <p class="text-[#ffffff] w-full xl:text-xl lg:text-lg text-xs font-semibold truncate">{spotify === null ? "Stay With Me" :activityPresence.data.spotify.album}</p>
+          <p class="text-[#ffffff] w-full xl:text-xl lg:text-lg text-xs truncate">{spotify=== null ? "1nonly" : activityPresence.data.spotify.artist}</p>
+        </div>
+      </div>
+      </div>
+      <img class="absolute w-full h-full top-0 left-0 object-center object-cover z-[-1]" src={spotify === null ? "./spotify-offline.jpeg" : `${activityPresence.data.spotify.album_art_url}`} alt="Discord">
+    </div>
+  </article>

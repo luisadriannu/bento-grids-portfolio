@@ -1,0 +1,35 @@
+<article  class="bg-white border-2 dark:border-[#30363D] dark:bg-[#0D1116] text-white flex flex-col justify-center items-center rounded-2xl relative aspect-square col-span-1 p-4 ">
+  <label class="relative inline-flex items-center cursor-pointer">
+    <input id="themeToggle" type="checkbox"  class="sr-only peer">
+    <div class="w-11 h-6 bg-[#EFF2F8]  rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-black after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#21262D]">
+    
+    </div>
+  </label>
+</article>
+
+<script is:inline>
+  const currentTheme = localStorage.getItem('theme');
+
+  const setTheme = (theme) => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    localStorage.setItem('theme', theme);
+  };
+
+
+  if (currentTheme === 'dark') {
+    setTheme('dark');
+
+    document.getElementById('themeToggle').checked = true;
+  } else {
+    setTheme('light');
+
+    document.getElementById('themeToggle').checked = false;
+  }
+
+  const handleToggleClick = () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    setTheme(isDark ? 'light' : 'dark');
+  };
+
+  document.getElementById('themeToggle').addEventListener('click', handleToggleClick);
+</script>
