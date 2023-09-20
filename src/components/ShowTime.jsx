@@ -6,6 +6,13 @@ function ShowTime() {
   const [currentHours, setCurrentHours] = useState(getCurrentHours());
   const [weather, setWeather] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [language, setLanguage] = useState("en");
+
+  //  LANGUAGE
+  useEffect(() => {
+    const userLanguage = document.documentElement.getAttribute("lang");
+    setLanguage(userLanguage);
+  }, []);
 
   // CLIMA
   useEffect(() => {
@@ -68,21 +75,13 @@ function ShowTime() {
       <>
         <div class="flex flex-col justify-center lg:h-full w-2/3 absolute lg:static z-10">
           <p class="text-white capitalize text-xs md:text-xl lg:text-2xl font-semibold lg:mb-0">
-            Cargando..
+            {language === "en" ? "Loading.." : "Cargando.."}
           </p>
         </div>
-        <div class="absolute right-0 top-0 flex justify-end z-0 items-center w-full h-full overflow-hidden">
-          <div class="TimeCard_night__BfZ0q TimeCard_container__bLNa3 w-20 h-20 lg:w-56 lg:h-56 right-5">
-            <span class="TimeCard_moon__scQu9 w-10 h-10 lg:w-24 lg:h-24"></span>
-            <span class="TimeCard_spot1__SaOIN"></span>
-            <span class="TimeCard_spot2__Cq_4z"></span>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
+        <div class="absolute right-0 top-0 flex z-0 items-center w-full h-full overflow-hidden justify-end">
+          <div class="TimeCard_hot__Br_X1 TimeCard_container__bLNa3 w-20 h-20 md:w-56 md:h-56 right-5">
+            <span class="TimeCard_sun___9W9H w-10 h-10 md:w-24 md:h-24"></span>
+            <span class="TimeCard_sunx__Dp1CZ"></span>
           </div>
         </div>
       </>
@@ -103,11 +102,13 @@ function ShowTime() {
             {weather?.temp}°
           </p>
           <p class="capitalize text-xs md:text-xl lg:text-2xl font-semibold lg:mb-0">
-            {weather?.weather}
+            {language === "en" ? weather?.weather : weather?.weatherEs}
           </p>
-          <p class="text-xs md:text-md lg:text-xl">México</p>
           <p class="text-xs md:text-md lg:text-xl">
             {currentHours.currentHour}
+          </p>
+          <p class="text-xs md:text-md lg:text-xl">
+            {language === "en" ? "In Mexico" : "En México"}
           </p>
         </div>
       </div>

@@ -4,6 +4,12 @@ import { getInfo } from "../services/getInfo";
 export const SpotifyStatus = () => {
   const [activityData, setActivityData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [language, setLanguage] = useState("en");
+
+  useEffect(() => {
+    const userLanguage = document.documentElement.getAttribute("lang");
+    setLanguage(userLanguage);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +25,7 @@ export const SpotifyStatus = () => {
 
     fetchData();
 
-    const interval = setInterval(fetchData, 600000);
+    const interval = setInterval(fetchData, 300000);
 
     return () => {
       clearInterval(interval);
@@ -30,12 +36,12 @@ export const SpotifyStatus = () => {
     return (
       <>
         <p class="text-[#ffffff] font-bold text-xs lg:text-2xl md:text-xl">
-          Cargando..
+          {language === "en" ? "Loading.." : "Cargando.."}
         </p>
         <img
           class="absolute w-full h-full top-0 left-0 object-center object-cover z-[-1]"
           src="./spotify-offline.jpeg"
-          alt="Discord"
+          alt="Spotify Album"
         ></img>
       </>
     );
@@ -46,14 +52,18 @@ export const SpotifyStatus = () => {
       <div>
         <p class="text-[#ffffff] font-bold text-xs lg:text-2xl md:text-xl">
           {activityData?.data?.spotify === null
-            ? "Escuchado recientemente:"
-            : "Escuchando ahora:"}
+            ? language === "en"
+              ? "Recently listened"
+              : "Escuchado recientemente"
+            : language === "en"
+            ? "Listening now"
+            : "Escuchando ahora"}
         </p>
-        <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-1">
           <p class="text-[#ffffff] w-full xl:text-xl lg:text-lg text-xs font-semibold truncate">
             {activityData?.data?.spotify === null
               ? "DIOR"
-              : activityData?.data?.spotify.album}
+              : activityData?.data?.spotify.song}
           </p>
           <p class="text-[#ffffff] w-full xl:text-xl lg:text-lg text-xs truncate">
             {activityData?.data?.spotify === null

@@ -1,35 +1,42 @@
 ---
-import ChangeLanguage from "./contentAbout/ChangeLanguage.astro";
-import DiscordPresence from "./contentAbout/DiscordPresence.astro"
 import DarkMode from "./contentAbout/DarkMode.astro"
 import SpotifyPresence from "./contentAbout/SpotifyPresence.astro";
+import { DiscordStatus } from "./DiscordStatus"
 import Weather from "./contentAbout/Weather.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import ChangeLanguage from "./contentAbout/ChangeLanguage.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <!-- Sobre mi -->
-<article class="bg-white dark:bg-[#0D1116] dark:text-white relative border-2 dark:border-[#30363D] col-span-3 aspect-square md:aspect-auto md:row-span-2 rounded-3xl overflow-hidden p-2 md:p-4">
+<article class="bg-white dark:bg-[#0D1116] dark:text-white relative border-2 dark:border-[#30363D] col-span-3 aspect-square md:aspect-auto md:row-span-2 rounded-3xl overflow-hidden p-2 md:p-4 transition duration-300 delay-75 ease-in-out">
   <div class="float-right pt-2 pr-2">
-    <img class="w-auto h-24 ml-auto mr-auto" src="/icon-luizack.png" alt="Luis Adrian">
+    <img class="w-auto h-24 md:h-32 lg:h-36 ml-auto mr-auto" src="/icon-luizack.png" alt="Luis Adrian">
   </div>
-  <div class="lg:absolute lg:bottom-12">
+  <div class="lg:absolute lg:bottom-16">
     <div class="md:w-8/12 p-2 md:px-8 md:py-4 flex flex-col justify-start md:justify-end">
-      <h1 class="text-3xl font-bold md:text-4xl lg:text-6xl">Hi, I'm <br> <span class="text-[#e1a028]">Luis Adrian</span></h1>
-      <p class="pt-2 md:text-lg lg:text-xl">Un joven apasionado con la habilidad en la creación de experiencias web interactivas y atractivas.</p>
+      <div class="flex flex-col md:gap-1 lg:gap-2">
+        <h1 class="text-3xl font-bold md:text-4xl lg:text-6xl">{t('about.im')}</h1>
+        <h2 class="text-[#e1a028] text-3xl font-bold md:text-4xl lg:text-6xl">Luis Adrian</h2>
+      </div>
+      <p class="pt-2 lg:pt-4 md:text-lg lg:text-xl">{t('about.description')}</p>
     </div>
     <p class="px-2 md:px-8 md:text-lg lg:text-xl hidden sm:block">
-      Tengo buen ojo para los pequeños detalles que marcan la diferencia, y siempre pongo lo mejor de mí en mis trabajos.
+      {t('about.description-two')}
     </p>
   </div>
 </article>
 
-<DiscordPresence/>
+<DiscordStatus client:visible/>
 
 <ChangeLanguage/>
 
 <DarkMode/>
 
 <!-- Linkend -->
-  <a href="https:luizack.site" class="bg-[#7ac7f1]  border-2 dark:border-[#30363D] dark:bg-[#0569A1] text-white flex flex-col justify-center items-center rounded-2xl relative col-span-1 aspect-square text-center p-4">
+  <a href="https://www.linkedin.com/in/luis-adrian-nu%C3%B1ez-jaramillo-b31a0a1a5/" class="bg-[#0077b6]  border-2 dark:border-[#30363D] dark:bg-[#0353a4] text-white flex flex-col justify-center items-center rounded-2xl relative col-span-1 aspect-square text-center p-4 transition duration-300 delay-75 ease-in-out" target="_blank" rel="noreferer">
     <div class="sm:scale-175">
       <svg xmlns="http://www.w3.org/2000/svg"  class="inline-flex w-8 md:w-10" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -43,8 +50,8 @@ import Weather from "./contentAbout/Weather.astro";
   </a>
 
   <!-- Portfolio projects -->
-   <a class="bg-[#0000007b] border-2 dark:border-[#30363D] text-white rounded-2xl relative w-full p-4 col-span-2 overflow-hidden " href="https://luizack.site/#proyectos">
-      <div class="absolute top-4 right-4 bg-white rounded-full p-1">
+   <a class="bg-[#00000077] border-2 dark:border-[#30363D] text-white rounded-2xl relative w-full p-4 col-span-2 overflow-hidden " href="https://luizack.site/#proyectos transition duration-300 delay-75 ease-in-out">
+      <div class="absolute top-2 right-2 bg-white rounded-full p-1">
         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
           <path d="M17 7l-10 10"></path>
@@ -53,17 +60,17 @@ import Weather from "./contentAbout/Weather.astro";
       </div>
       <img class="absolute w-full h-full top-0 left-0 object-center object-cover z-[-1]" src="/coding.gif" alt="Github">
       <div class="flex flex-col gap-1">
-        <h3 class="text-white text-sm md:text-xl lg:text-3xl font-bold">Projects and works</h3>
-        <p class="text-white text-sm md:text-md lg:text-2xl">Follow this link for go see my projects</p>
+        <h3 class="text-white text-sm md:text-xl lg:text-3xl font-bold">{t('projects-works')}</h3>
+        <p class="text-white text-sm md:text-md lg:text-2xl">{t('projects-description')}</p>
       </div>
   </a>
 
    <SpotifyPresence/>
 
+   <!-- Experience -->
   <article class="col-span-1 sm:col-span-1 flex flex-col justify-between gap-2 md:gap-4">
-  <a href="https:luizack.site" class="text-white rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-black p-4 justify-center items-center border-2 dark:border-[#30363D]">
+  <a href="https://twitter.com/LuisAdrianNuez" class="text-white rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-black p-4 justify-center items-center border-2 dark:border-[#30363D] transition duration-300 delay-75 ease-in-out"  target="_blank" rel="noopener">
      <div class="sm:scale-175">
-
        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
          <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
@@ -72,10 +79,10 @@ import Weather from "./contentAbout/Weather.astro";
      </div>
   </a>
 
-  <article class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#62DBBE] p-4 text-white justify-center items-center border-2 dark:border-[#30363D] dark:bg-[#0D1116]">
+  <article class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#6DD2B7] p-4 text-white justify-center items-center border-2 dark:border-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out">
     <div class="flex justify-center items-center flex-col">
       <p class="text-4xl md:text-8xl font-bold">+3</p>
-      <p class="text-xs md:text-xl uppercase font-semibold text-center">years of experience</p>
+      <p class="text-xs md:text-xl uppercase font-semibold text-center">{t('experience-years')}</p>
     </div>
   </article>
 </article>
@@ -83,7 +90,7 @@ import Weather from "./contentAbout/Weather.astro";
  <Weather/>
 
  <!-- Mail -->
- <a class="border-2 bg-[#FFC6D7] dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square" href="https://luizack.site">
+ <a class="border-2 bg-[#D8858D] dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square transition duration-300 delay-75 ease-in-out" href="mailto:luisadriannu13@gmail.com" target="_blank">
   <div class="absolute top-2 right-2 bg-white rounded-full p-1">
      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black " width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -102,7 +109,7 @@ import Weather from "./contentAbout/Weather.astro";
   </a>
 
   <!-- CV -->
-  <a href="/cv_luisadrian.pdf" class="border-2 bg-white dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square text-center font-bold md:text-xl" target="_blank" rel="noreferrer">
+  <a href="/cv_luisadrian.pdf" class="border-2 bg-white dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square text-center font-bold md:text-xl transition duration-300 delay-75 ease-in-out" target="_blank" rel="noreferrer">
    <div class="absolute top-2 right-2 dark:bg-white rounded-full p-1">
       <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -121,9 +128,9 @@ import Weather from "./contentAbout/Weather.astro";
      </div>
   </a>
 
-  <a href="https://github.com/luisadriannu" target="_blank" rel="noopener noreferrer" class="rounded-2xl col-span-2 overflow-hidden cursor-pointer border-2 dark:border-[#30363D]">
-    
-    <div class="relative w-full h-full p-4 bg-[#00000077] ">
+  <!-- Github -->
+  <a href="https://github.com/luisadriannu" target="_blank" rel="noopener noreferrer" class="rounded-2xl col-span-2 overflow-hidden cursor-pointer border-2 dark:border-[#30363D] transition duration-300 delay-75 ease-in-out">
+    <div class="relative w-full h-full p-4 bg-[#00000077]">
     <img alt="GitHub" loading="lazy" width="498" height="280" decoding="async" data-nimg="1" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent"  src="/giphy.gif">
     <div class="absolute top-2 right-2 bg-white rounded-full p-1">
      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -133,7 +140,7 @@ import Weather from "./contentAbout/Weather.astro";
     </svg>
     </div>
           <h2 class="text-white text-sm md:text-xl lg:text-3xl font-bold">Github</h2>
-          <p class="text-white text-sm md:text-md lg:text-2xl">My Github profile, where I upload my projects.</p>
+          <p class="text-white text-sm md:text-md lg:text-2xl">{t("description-github")}</p>
       </div>
   </div>
 </div>
