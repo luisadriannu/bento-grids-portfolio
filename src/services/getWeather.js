@@ -12,9 +12,8 @@ export const getWeather = async () => {
 
     if (json && json.main && json.main.temp) {
       let temp = json.main.temp.toString().slice(0, 2),
-        country = json.name,
         weather = json.weather[0].main;
-      return { temp, country, weather };
+      return { temp, weather };
     } else {
       throw new Error(
         "No se encontró la propiedad 'temp' en la respuesta JSON."

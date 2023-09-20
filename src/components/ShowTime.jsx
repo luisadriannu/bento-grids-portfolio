@@ -1,37 +1,143 @@
-import { h, Component } from "preact";
+import { useState, useEffect } from "preact/hooks";
+import { getWeather } from "../services/getWeather";
+import "./Styles.css";
 
-class ShowTime extends Component {
-  constructor() {
-    super();
-    this.state = {
-      hora: this.obtenerHoraActual(),
+function ShowTime() {
+  const [currentHours, setCurrentHours] = useState(getCurrentHours());
+  const [weather, setWeather] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // CLIMA
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getWeather();
+        setWeather(data);
+        setIsLoading(false);
+      } catch (err) {
+        console.error("Error al obtener datos:", err);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+
+    const interval = setInterval(fetchData, 10800000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  // HORAS
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHours(getCurrentHours());
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  function getCurrentHours() {
+    let timeNow = new Date();
+    let hours = timeNow.getHours();
+    let minutes = timeNow.getMinutes();
+    let ampm = "AM";
+
+    if (hours >= 12) {
+      ampm = "PM";
+      if (hours > 12) {
+        hours -= 12;
+      }
+    }
+
+    minutes = minutes.toString().padStart(2, "0");
+
+    let hourConditional = (hours += 12);
+
+    return {
+      currentHour: `${hours}:${minutes} ${ampm}`,
+      hourConditional,
     };
   }
 
-  componentDidMount() {
-    this.interval = setInterval(() => {
-      this.setState({ hora: this.obtenerHoraActual() });
-    }, 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-  obtenerHoraActual() {
-    const ahora = new Date();
-    const horas = ahora.getHours();
-    const minutos = ahora.getMinutes();
-    return `${horas}:${minutos}`;
-  }
-
-  render() {
+  if (isLoading) {
     return (
-      <div>
-        <p class="text-xs md:text-md lg:text-xl">{this.state.hora}</p>
-      </div>
+      <>
+        <div class="flex flex-col justify-center lg:h-full w-2/3 absolute lg:static z-10">
+          <p class="text-white capitalize text-xs md:text-xl lg:text-2xl font-semibold lg:mb-0">
+            Cargando..
+          </p>
+        </div>
+        <div class="absolute right-0 top-0 flex justify-end z-0 items-center w-full h-full overflow-hidden">
+          <div class="TimeCard_night__BfZ0q TimeCard_container__bLNa3 w-20 h-20 lg:w-56 lg:h-56 right-5">
+            <span class="TimeCard_moon__scQu9 w-10 h-10 lg:w-24 lg:h-24"></span>
+            <span class="TimeCard_spot1__SaOIN"></span>
+            <span class="TimeCard_spot2__Cq_4z"></span>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </>
     );
   }
+
+  return (
+    <div
+      class={`${
+        currentHours.hourConditional >= 8 && currentHours.hourConditional <= 18
+          ? "bg-[#089cffa4]"
+          : "bg-[#001324]"
+      } w-full flex overflow-hidden bg-clip-padding text-white py-2 px-4 lg:p-8`}
+    >
+      <div class="flex flex-col justify-center lg:h-full w-2/3 absolute lg:static z-10">
+        <div>
+          <p class="text-lg md:text-5xl lg:text-7xl font-bold">
+            {weather?.temp}°
+          </p>
+          <p class="capitalize text-xs md:text-xl lg:text-2xl font-semibold lg:mb-0">
+            {weather?.weather}
+          </p>
+          <p class="text-xs md:text-md lg:text-xl">México</p>
+          <p class="text-xs md:text-md lg:text-xl">
+            {currentHours.currentHour}
+          </p>
+        </div>
+      </div>
+
+      {currentHours.hourConditional >= 8 &&
+      currentHours.hourConditional <= 18 ? (
+        <div class="absolute right-0 top-0 flex z-0 items-center w-full h-full overflow-hidden justify-end">
+          <div class="TimeCard_hot__Br_X1 TimeCard_container__bLNa3 w-20 h-20 md:w-56 md:h-56 right-5">
+            <span class="TimeCard_sun___9W9H w-10 h-10 md:w-24 md:h-24"></span>
+            <span class="TimeCard_sunx__Dp1CZ"></span>
+          </div>
+        </div>
+      ) : (
+        <div class="absolute right-0 top-0 flex justify-end z-0 items-center w-full h-full overflow-hidden">
+          <div class="TimeCard_night__BfZ0q TimeCard_container__bLNa3 w-20 h-20 lg:w-56 lg:h-56 right-5">
+            <span class="TimeCard_moon__scQu9 w-10 h-10 lg:w-24 lg:h-24"></span>
+            <span class="TimeCard_spot1__SaOIN"></span>
+            <span class="TimeCard_spot2__Cq_4z"></span>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default ShowTime;
