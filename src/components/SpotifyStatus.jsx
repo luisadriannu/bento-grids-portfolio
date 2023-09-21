@@ -39,8 +39,9 @@ export const SpotifyStatus = () => {
           {language === "en" ? "Loading.." : "Cargando.."}
         </p>
         <img
+          loading="lazy"
           class="absolute w-full h-full top-0 left-0 object-center object-cover z-[-1]"
-          src="./spotify-offline.jpeg"
+          src="../assets/spotify-offline.jpeg"
           alt="Spotify Album"
         ></img>
       </>
@@ -73,13 +74,14 @@ export const SpotifyStatus = () => {
         </div>
       </div>
       <img
+        loading="lazy"
         class="absolute w-full h-full top-0 left-0 object-center object-cover z-[-1]"
         src={
           activityData?.data?.spotify === null
-            ? "./spotify-offline.jpeg"
+            ? "../assets/spotify-offline.jpeg"
             : `${activityData?.data?.spotify.album_art_url}`
         }
-        alt="Discord"
+        alt="Spotify Album"
       ></img>
     </div>
   );

@@ -2,26 +2,56 @@
 interface Props {
 	title: string;
   language: string;
+  description: string;
 }
 
-const { title, language } = Astro.props;
+const { title, language, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={language} class="dark">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      name="twitter:image"
+      content="https://luisadrian.me/android-chrome-512x512.png"
+    />
+    <meta property="og:url" name="twitter:url" content="https://luisadrian.me" />
 		<link rel="icon" type="image/png" href="/favicon-16x16.png" />
+    <meta
+      property="og:description"
+      name="twitter:description"
+      content={description}
+    />
+    <meta name="creator" content="Luis Adrian" />
+    <meta property="og:title" content="Luis Adrian | Frontend Developer" />
+    <meta property="og:site_name" content="Luis Adrian, Frontend Developer" />
+    <meta property="og:locale" content="en" />
+    <meta name="twitter:site" content="@LuisAdrianNuez" />
 		<meta name="generator" content={Astro.generator} />
+    <meta name="twitter:title" content="Luis Adrian | Frontend Developer" />
+    <meta name="theme-color" content="#e1a028" />
+     <meta name="apple-mobile-web-app-status-bar" content="#e1a028" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="author" content="Luis Adrian" />
+    <link rel="author" href="https://luisadrian.me" />
+    <link rel="canonical" href="https://luisadrian.me" />
+    <link rel="preconnect" href="https://luisadrian.me">
+     <meta
+      name="keywords"
+      content="React,JavaScript,Luis,Adrian,Nuñez,Jaramillo,CSS,HTML,Frontend,Developer,Web,luizackjs,luizack.site,luisadriannu,Luis Adrian,Luis Adrian Nuñez Jaramillo,luis,adrian,nuñez,luis adrian,portfolio,portafolio,projects,proyectos,skills,habilidades,about,sobre,contact,contacto,contactame,contactame,contact me"
+    />
+    <meta name="twitter:creator" content="@LuisAdrianNuez" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 		<title>{title}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 	</head>
 	<body class="bg-[#F7F2F2] dark:bg-[#09030E] transition duration-300 ease-in-out">
-    <div class="bg-[url('/noise.gif')] fixed top-0 left-0 w-full h-screen opacity-[0.025] z-[999] pointer-events-none"></div>
+    <article class="bg-[url('/assets/noise.gif')] fixed top-0 left-0 w-full h-screen opacity-[0.025] z-[999] pointer-events-none"></article>
 		<slot />
 	</body>
 </html>

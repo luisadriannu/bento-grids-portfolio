@@ -1,4 +1,5 @@
 export const getInfo = async () => {
+  // Discord Presence
   try {
     const response = await fetch(
       "https://api.lanyard.rest/v1/users/334914085328257026"
