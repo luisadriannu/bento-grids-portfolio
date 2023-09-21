@@ -71,10 +71,10 @@ function ShowTime() {
   }
 
   function getHoursConditional() {
-    let [hours24, minutes24] = currentHours.replace(" PM", "").split(":");
-    let hoursFormat = parseInt(hours24, 10) + 16;
+    const currentTime = getCurrentHours();
+    const currentHour = parseInt(currentTime.split(":")[0]);
 
-    return hoursFormat;
+    return currentHour;
   }
 
   if (isLoading) {

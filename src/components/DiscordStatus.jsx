@@ -77,6 +77,11 @@ export const DiscordStatus = () => {
           : "bg-[#f96568] dark:bg-[#D13F40]"
       } flex flex-col justify-center items-center rounded-2xl relative col-span-1 md:col-span-1 p-4 text-center aspect-square text-white border-2 dark:border-[#30363D] transition duration-300 delay-75 ease-in-out`}
     >
+      <img
+        src="../assets/icon-account-discord.jpg"
+        class="w-auto rounded-full h-6 md:h-8 lg:h-10 absolute top-2 right-2"
+        alt="Icon Discord"
+      />
       <div class="flex gap-1 md:gap-2 justify-center items-center text-md md:text-2xl xl:text-3xl font-bold">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +103,7 @@ export const DiscordStatus = () => {
           ></path>
         </svg>
         <div>
-          <p class="text-sm lg:text-2xl">{statuSlice}</p>
+          <p class="text-sm md:text-2xl lg:text-3xl">{statuSlice}</p>
         </div>
       </div>
     </article>
