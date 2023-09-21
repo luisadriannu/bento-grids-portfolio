@@ -36,7 +36,7 @@ const t = useTranslations(lang);
 <DarkMode/>
 
 <!-- Linkend -->
-  <a href="https://www.linkedin.com/in/luis-adrian-nu%C3%B1ez-jaramillo-b31a0a1a5/" class="bg-[#0077b6]  border-2 dark:border-[#30363D] dark:bg-[#0353a4] text-white flex flex-col justify-center items-center rounded-2xl relative col-span-1 aspect-square text-center p-4 transition duration-300 delay-75 ease-in-out" target="_blank" rel="noreferer">
+  <a href="https://www.linkedin.com/in/luis-adrian-nu%C3%B1ez-jaramillo-b31a0a1a5/" class="bg-[#0077b6]  border-2 dark:border-[#30363D] dark:bg-[#0353a4] text-white flex flex-col justify-center items-center rounded-2xl relative col-span-1 aspect-square text-center p-4 lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
     <div class="sm:scale-175">
       <svg xmlns="http://www.w3.org/2000/svg"  class="inline-flex w-8 md:w-10" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -50,26 +50,28 @@ const t = useTranslations(lang);
   </a>
 
   <!-- Portfolio projects -->
-   <a class="bg-[#00000077] border-2 dark:border-[#30363D] text-white rounded-2xl relative w-full p-4 col-span-2 overflow-hidden " href="https://luizack.site/#proyectos transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener">
-      <div class="absolute top-2 right-2 bg-white rounded-full p-1">
-        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M17 7l-10 10"></path>
-          <path d="M8 7l9 0l0 9"></path>
-        </svg>
-      </div>
-      <img loading="lazy" class="absolute w-full h-full top-0 left-0 object-center object-cover z-[-1]" src="/assets/coding.gif" alt="Projects">
-      <div class="flex flex-col gap-1">
-        <h3 class="text-white text-sm md:text-xl lg:text-3xl font-bold">{t('projects-works')}</h3>
-        <p class="text-white text-sm md:text-md lg:text-2xl">{t('projects-description')}</p>
-      </div>
+   <a href="https://luizack.site/#proyectos" class="relative border-2 dark:border-[#30363D] text-white md:aspect-auto rounded-2xl w-full col-span-2 overflow-hidden lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
+    <div class="w-full h-full bg-[#00000077] absolute">
+        <img loading="lazy" width="480" height="480" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/coding.gif" alt="Projects">
+    </div>
+    <div class="absolute top-2 right-2 bg-white rounded-full p-1">
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M17 7l-10 10"></path>
+        <path d="M8 7l9 0l0 9"></path>
+      </svg>
+    </div>
+    <div class="w-full h-full absolute top-0 left-0 text-white p-4 z-10 pointer-events-none">
+      <h3 class="text-white text-sm md:text-xl lg:text-3xl font-bold">{t('projects-works')}</h3>
+      <p class="text-white text-sm md:text-md lg:text-2xl">{t('projects-description')}</p>
+    </div>
   </a>
 
    <SpotifyPresence/>
 
    <!-- Experience -->
   <article class="col-span-1 sm:col-span-1 flex flex-col justify-between gap-2 md:gap-4">
-  <a href="https://twitter.com/LuisAdrianNuez" class="text-white rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-black p-4 justify-center items-center border-2 dark:border-[#30363D] transition duration-300 delay-75 ease-in-out"  target="_blank" rel="noopener">
+  <a href="https://twitter.com/LuisAdrianNuez" class="text-white rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-black p-4 justify-center items-center border-2 dark:border-[#30363D] lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out"  target="_blank" rel="noopener noreferrer">
      <div class="sm:scale-175">
        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -90,7 +92,7 @@ const t = useTranslations(lang);
  <Weather/>
 
  <!-- Mail -->
- <a class="border-2 bg-[#D8858D] dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square transition duration-300 delay-75 ease-in-out" href="mailto:luisadriannu13@gmail.com" target="_blank">
+ <a class="border-2 bg-[#D8858D] dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" href="mailto:luisadriannu13@gmail.com" target="_blank">
   <div class="absolute top-2 right-2 bg-white rounded-full p-1">
      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black " width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -109,7 +111,7 @@ const t = useTranslations(lang);
   </a>
 
   <!-- CV -->
-  <a href="/assets/cv_luisadrian.pdf" class="border-2 bg-white dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square text-center font-bold md:text-xl transition duration-300 delay-75 ease-in-out" target="_blank" rel="noreferrer">
+  <a href="/assets/cv_luisadrian.pdf" class="border-2 bg-white dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square text-center font-bold md:text-xl lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
    <div class="absolute top-2 right-2 dark:bg-white rounded-full p-1">
       <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -129,19 +131,19 @@ const t = useTranslations(lang);
   </a>
 
   <!-- Github -->
-  <a href="https://github.com/luisadriannu" target="_blank" rel="noopener noreferrer" class="rounded-2xl col-span-2 overflow-hidden cursor-pointer border-2 dark:border-[#30363D] transition duration-300 delay-75 ease-in-out">
-    <div class="relative w-full h-full p-4 bg-[#00000077]">
-    <img loading="lazy" width="498" height="280" decoding="async" data-nimg="1" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/giphy.gif" alt="GitHub">
-    <div class="absolute top-2 right-2 bg-white rounded-full p-1">
-     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M17 7l-10 10"></path>
-      <path d="M8 7l9 0l0 9"></path>
-    </svg>
-    </div>
-          <h2 class="text-white text-sm md:text-xl lg:text-3xl font-bold">Github</h2>
-          <p class="text-white text-sm md:text-md lg:text-2xl">{t("description-github")}</p>
-      </div>
+<a href="https://github.com/luisadriannu" target="_blank" rel="noopener noreferrer" class="rounded-2xl col-span-2 overflow-hidden cursor-pointer border-2 dark:border-[#30363D] lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out">
+  <div class="relative w-full h-full p-4 bg-[#00000077]">
+  <img loading="lazy" width="498" height="280" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/giphy.gif" alt="GitHub">
+  <div class="absolute top-2 right-2 bg-white rounded-full p-1">
+    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M17 7l-10 10"></path>
+    <path d="M8 7l9 0l0 9"></path>
+  </svg>
   </div>
+        <h2 class="text-white text-sm md:text-xl lg:text-3xl font-bold">Github</h2>
+        <p class="text-white text-sm md:text-md lg:text-2xl">{t("description-github")}</p>
+    </div>
+</div>
 </div>
 </a>
