@@ -72,7 +72,7 @@ function ShowTime() {
 
   if (isLoading) {
     return (
-      <>
+      <div class="bg-[#089cffa4] w-full flex overflow-hidden bg-clip-padding text-white py-2 px-4 lg:p-8`">
         <div class="flex flex-col justify-center lg:h-full w-2/3 absolute lg:static z-10">
           <p class="text-white capitalize text-xs md:text-xl lg:text-2xl font-semibold lg:mb-0">
             {language === "en" ? "Loading.." : "Cargando.."}
@@ -84,7 +84,7 @@ function ShowTime() {
             <span class="TimeCard_sunx__Dp1CZ"></span>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 
