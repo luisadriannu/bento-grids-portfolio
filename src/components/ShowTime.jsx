@@ -72,7 +72,7 @@ function ShowTime() {
 
   function getHoursConditional() {
     const currentTime = getCurrentHours();
-    const currentHour = parseInt(currentTime.split(":")[0]);
+    const currentHour = parseInt(currentTime.split(":")[0]) + 12;
 
     return currentHour;
   }
