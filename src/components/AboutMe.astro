@@ -50,7 +50,7 @@ const t = useTranslations(lang);
   </a>
 
   <!-- Portfolio projects -->
-   <a href="https://luizack.site/#proyectos" class="relative border-2 dark:border-[#30363D] text-white md:aspect-auto rounded-2xl w-full col-span-2 overflow-hidden lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
+   <a href="https://luizack.site/#proyectos" class="relative border-2 dark:border-[#30363D] md:aspect-auto rounded-2xl w-full col-span-2 overflow-hidden lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
     <div class="w-full h-full bg-[#00000077] absolute">
         <img loading="lazy" width="480" height="480" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/coding.gif" alt="Projects Luis Adrian">
     </div>
@@ -131,9 +131,10 @@ const t = useTranslations(lang);
   </a>
 
   <!-- Github -->
-<a href="https://github.com/luisadriannu" target="_blank" rel="noopener noreferrer" class="rounded-2xl col-span-2 overflow-hidden cursor-pointer border-2 dark:border-[#30363D] lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out">
-  <div class="relative w-full h-full p-4 bg-[#00000077]">
-  <img loading="lazy" width="498" height="280" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/giphy.gif" alt="GitHub Luis Adrian">
+<a href="https://github.com/luisadriannu" target="_blank" rel="noopener noreferrer" class="relative rounded-2xl col-span-2 overflow-hidden border-2 dark:border-[#30363D] lg:hover:scale-[103%] w-full transition duration-300 delay-75 ease-in-out md:aspect-auto">
+  <div class="w-full h-full bg-[#00000077] absolute">
+    <img loading="lazy" width="498" height="280" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/giphy.gif" alt="GitHub Luis Adrian">
+  </div>
   <div class="absolute top-2 right-2 bg-white rounded-full p-1">
     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -141,9 +142,9 @@ const t = useTranslations(lang);
     <path d="M8 7l9 0l0 9"></path>
   </svg>
   </div>
-        <h2 class="text-white text-sm md:text-xl lg:text-3xl font-bold">Github</h2>
-        <p class="text-white text-sm md:text-md lg:text-2xl">{t("description-github")}</p>
-    </div>
-</div>
-</div>
+  <div class="w-full h-full absolute top-0 left-0 text-white p-4 z-10 pointer-events-none">
+    <h2 class="text-white text-sm md:text-xl lg:text-3xl font-bold">Github</h2>
+    <p class="text-white text-sm md:text-md lg:text-2xl">{t("description-github")}</p>
+  </div>
 </a>
+

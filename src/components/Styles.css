@@ -1,16 +1,16 @@
 /* DAY */
-.TimeCard_hot__Br_X1 {
+.TimeCard_hot {
   position: relative;
   background: linear-gradient(to top right, #ff5722, #fb8c00);
   box-shadow: 1px 1px 30px #ff6f00;
 }
 
-.TimeCard_container__bLNa3 {
+.TimeCard_container {
   border-radius: 40%;
   z-index: 120;
 }
 
-.TimeCard_sun___9W9H {
+.TimeCard_sun {
   position: absolute;
   top: -10%;
   left: 65%;
@@ -20,7 +20,7 @@
   animation: TimeCard_inex__wdnhf 3s linear infinite;
 }
 
-.TimeCard_sunx__Dp1CZ {
+.TimeCard_sunx {
   position: absolute;
   top: 30%;
   left: 45%;
@@ -39,13 +39,13 @@
 }
 
 /* NIGHT */
-.TimeCard_night__BfZ0q {
+.TimeCard_night {
   position: relative;
   background: linear-gradient(to bottom right, #3f51b5, #ab47bc 70%);
   box-shadow: 1px 1px 30px #512da8;
 }
 
-.TimeCard_night__BfZ0q li {
+.TimeCard_night li {
   position: absolute;
   list-style: none;
   width: 3px;
@@ -55,41 +55,41 @@
   transform: rotate(45deg);
 }
 
-.TimeCard_night__BfZ0q li:first-child {
+.TimeCard_night li:first-child {
   top: 30%;
   left: 65%;
 }
 
-.TimeCard_night__BfZ0q li:nth-child(2) {
+.TimeCard_night li:nth-child(2) {
   top: 35%;
   left: 53%;
 }
 
-.TimeCard_night__BfZ0q li:nth-child(3) {
+.TimeCard_night li:nth-child(3) {
   opacity: 0;
   top: 20%;
   left: 75%;
   width: 2px;
   height: 2px;
-  animation: TimeCard_meteor__1qJO5 1.5s linear infinite;
+  animation: TimeCard_meteor 1.5s linear infinite;
   animation-delay: 0.6s;
 }
 
-.TimeCard_night__BfZ0q li:nth-child(5) {
+.TimeCard_night li:nth-child(5) {
   opacity: 0;
   top: 20%;
   left: 55%;
   width: 1px;
   height: 15px;
-  animation: TimeCard_meteor__1qJO5 1.5s linear infinite;
+  animation: TimeCard_meteor 1.5s linear infinite;
 }
 
-.TimeCard_night__BfZ0q li:nth-child(4) {
+.TimeCard_night li:nth-child(4) {
   top: 5%;
   left: 50%;
 }
 
-@keyframes TimeCard_meteor__1qJO5 {
+@keyframes TimeCard_meteor {
   10% {
     opacity: 1;
   }
@@ -101,12 +101,7 @@
   }
 }
 
-.TimeCard_container__bLNa3 {
-  border-radius: 40%;
-  z-index: 120;
-}
-
-.TimeCard_moon__scQu9 {
+.TimeCard_moon {
   position: absolute;
   top: -10%;
   left: 55%;
@@ -115,21 +110,21 @@
   box-shadow: 1px 1px 30px #e0e0e0;
 }
 
-.TimeCard_spot1__SaOIN {
+.TimeCard_spot1 {
   top: 0;
   left: 85%;
   width: 10px;
   height: 10px;
 }
 
-.TimeCard_spot1__SaOIN,
-.TimeCard_spot2__Cq_4z {
+.TimeCard_spot1,
+.TimeCard_spot2 {
   position: absolute;
   border-radius: 100%;
   background-color: #777;
 }
 
-.TimeCard_spot2__Cq_4z {
+.TimeCard_spot2 {
   top: 30%;
   left: 75%;
   width: 5px;

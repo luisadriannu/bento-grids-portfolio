@@ -72,7 +72,7 @@ function ShowTime() {
 
   function getHoursConditional() {
     const currentTime = getCurrentHours();
-    const currentHour = parseInt(currentTime.split(":")[0]);
+    const currentHour = parseInt(currentTime.split(":")[0]) + 12;
 
     return currentHour;
   }
@@ -80,15 +80,15 @@ function ShowTime() {
   if (isLoading) {
     return (
       <div class="bg-[#089cffa4] w-full flex overflow-hidden bg-clip-padding text-white py-2 px-4 lg:p-8`">
-        <div class="flex flex-col justify-center lg:h-full w-2/3 absolute lg:static z-10">
+        <div class="flex flex-col justify-center md:h-full w-2/3 absolute lg:static z-10">
           <p class="text-white capitalize text-xs md:text-xl lg:text-2xl font-semibold lg:mb-0">
             {language === "en" ? "Loading.." : "Cargando.."}
           </p>
         </div>
         <div class="absolute right-0 top-0 flex z-0 items-center w-full h-full overflow-hidden justify-end">
-          <div class="TimeCard_hot__Br_X1 TimeCard_container__bLNa3 w-20 h-20 md:w-56 md:h-56 right-5">
-            <span class="TimeCard_sun___9W9H w-10 h-10 md:w-24 md:h-24"></span>
-            <span class="TimeCard_sunx__Dp1CZ"></span>
+          <div class="TimeCard_hot TimeCard_container w-20 h-20 md:w-56 md:h-56 right-5">
+            <span class="TimeCard_sun w-10 h-10 md:w-24 md:h-24"></span>
+            <span class="TimeCard_sunx"></span>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@ function ShowTime() {
           : "bg-[#001324]"
       } w-full flex overflow-hidden bg-clip-padding text-white py-2 px-4 lg:p-8`}
     >
-      <div class="flex flex-col justify-center lg:h-full w-2/3 absolute lg:static z-10">
+      <div class="flex flex-col justify-center md:h-full w-2/3 absolute lg:static z-10">
         <div>
           <p class="text-lg md:text-5xl lg:text-7xl font-bold">
             {weather?.temp}°
@@ -111,26 +111,26 @@ function ShowTime() {
           <p class="capitalize text-xs md:text-xl lg:text-2xl font-semibold lg:mb-0">
             {language === "en" ? weather?.weather : weather?.weatherEs}
           </p>
-          <p class="text-xs md:text-md lg:text-lg">{currentHours}</p>
-          <p class="text-xs md:text-md lg:text-lg">
+          <p class="text-xs md:text-lg">{currentHours}</p>
+          <p class="text-xs md:text-lg">
             {language === "en" ? "In Mexico" : "En México"}
           </p>
         </div>
       </div>
 
       {hourConditional >= 8 && hourConditional <= 18 ? (
-        <div class="absolute right-0 top-0 flex z-0 items-center w-full h-full overflow-hidden justify-end">
-          <div class="TimeCard_hot__Br_X1 TimeCard_container__bLNa3 w-20 h-20 md:w-56 md:h-56 right-5">
-            <span class="TimeCard_sun___9W9H w-10 h-10 md:w-24 md:h-24"></span>
-            <span class="TimeCard_sunx__Dp1CZ"></span>
+        <div class="absolute right-0 top-0 flex z-0 items-center w-full h-full overflow-hidden justify-end pr-2 md:pr-0">
+          <div class="TimeCard_hot TimeCard_container w-20 h-20 md:w-56 md:h-56 right-5">
+            <span class="TimeCard_sun w-10 h-10 md:w-24 md:h-24"></span>
+            <span class="TimeCard_sunx"></span>
           </div>
         </div>
       ) : (
         <div class="absolute right-0 top-0 flex justify-end z-0 items-center w-full h-full overflow-hidden">
-          <div class="TimeCard_night__BfZ0q TimeCard_container__bLNa3 w-20 h-20 md:w-56 md:h-56 right-5">
-            <span class="TimeCard_moon__scQu9 w-10 h-10 md:w-24 md:h-24"></span>
-            <span class="TimeCard_spot1__SaOIN"></span>
-            <span class="TimeCard_spot2__Cq_4z"></span>
+          <div class="TimeCard_night TimeCard_container w-20 h-20 md:w-56 md:h-56 right-5">
+            <span class="TimeCard_moon w-10 h-10 md:w-24 md:h-24"></span>
+            <span class="TimeCard_spot1"></span>
+            <span class="TimeCard_spot2"></span>
             <ul>
               <li></li>
               <li></li>
