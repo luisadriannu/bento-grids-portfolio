@@ -30,7 +30,7 @@ function ShowTime() {
 
     fetchData();
 
-    const interval = setInterval(fetchData, 10800000);
+    const interval = setInterval(fetchData, 3600000);
 
     return () => {
       clearInterval(interval);
@@ -72,9 +72,16 @@ function ShowTime() {
 
   function getHoursConditional() {
     const currentTime = getCurrentHours();
-    const currentHour = parseInt(currentTime.split(":")[0]) + 12;
+    const ampm = currentTime.slice(-2);
+    const currentHour = parseInt(currentTime);
 
-    return currentHour;
+    if (ampm === "PM" && currentHour !== 12) {
+      return currentHour + 12;
+    } else if (ampm === "AM" && currentHour === 12) {
+      return 0;
+    } else {
+      return currentHour;
+    }
   }
 
   if (isLoading) {
