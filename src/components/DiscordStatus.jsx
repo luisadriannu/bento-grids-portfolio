@@ -34,7 +34,7 @@ export const DiscordStatus = () => {
 
   if (isLoading) {
     return (
-      <article class=" flex flex-col justify-center items-center rounded-2xl relative col-span-1 md:col-span-1 p-4 text-center aspect-square bg-[#f96568] text-white border-2 dark:border-[#30363D] dark:bg-[#3730A3] transition duration-300 delay-75 ease-in-out">
+      <article class=" flex flex-col justify-center items-center rounded-2xl relative col-span-1 md:col-span-1 p-4 text-center aspect-square bg-[#f96568] text-white dark:bg-[#3730A3] transition duration-300 delay-75 ease-in-out">
         <div class="flex gap-1 md:gap-2 justify-center items-center text-md md:text-2xl xl:text-3xl font-bold">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -94,23 +94,26 @@ export const DiscordStatus = () => {
           : status === "idle"
           ? "bg-[#fdba33d8] dark:bg-[#E2A22D]"
           : "bg-[#f96568] dark:bg-[#D13F40]"
-      } flex flex-col justify-center items-center rounded-2xl relative col-span-1 md:col-span-1 p-4 text-center aspect-square text-white border-2 overflow-hidden dark:border-[#30363D] transition duration-300 delay-75 ease-in-out`}
+      } flex flex-col justify-center items-center rounded-2xl relative col-span-1 md:col-span-1 p-4 text-center aspect-square text-white overflow-hidden transition duration-300 delay-75 ease-in-out`}
     >
       {status === "online" ? (
         <img
           src="../assets/icon-account-discord-online.jpg"
           class="w-auto rounded-full h-6 sm:h-8 lg:h-10 absolute top-2 right-2"
-          alt="Icon Discord online"
+          alt="Profile picture discord"
         />
       ) : (
         <img
           src="../assets/icon-account-discord-offline.png"
           class="animate-bounce w-auto h-8 sm:h-12 md:h-14 lg:h-16 absolute bottom-0 right-2"
-          alt="Icon Discord offline"
+          alt="Profile picture discord offline"
         />
       )}
       {status === "online" ? (
-        <span class="absolute top-2 right-2 w-2 h-2 md:w-4 md:h-4 bg-green-500 rounded-full"></span>
+        <span class="flex absolute top-2 right-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+          <span class="relative inline-flex w-2 h-2 md:w-3 md:h-3 bg-green-500 rounded-full"></span>
+        </span>
       ) : status === "idle" ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"

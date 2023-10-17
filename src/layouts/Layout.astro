@@ -41,6 +41,7 @@ const { title, language, description } = Astro.props;
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="author" href="https://luisadrian.me" />
     <link rel="canonical" href="https://luisadrian.me" />
+    <link rel="alternate" href="https://luisadrian.me/es" hreflang="es-MX">
     <link rel="preconnect" href="https://luisadrian.me">
     <link rel="manifest" href="/site.webmanifest" />
      <meta
@@ -48,8 +49,6 @@ const { title, language, description } = Astro.props;
       content="React,JavaScript,Luis,Adrian,Nuñez,Jaramillo,CSS,HTML,Frontend,Developer,Web,luizackjs,luizack.site,luisadriannu,Luis Adrian,Luis Adrian Nuñez Jaramillo,luis,adrian,nuñez,luis adrian,portfolio,portafolio,projects,proyectos,skills,habilidades,about,sobre,contact,contacto,contactame,contactame,contact me"
     />
     <meta name="twitter:creator" content="@LuisAdrianNuez" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 		<title>{title}</title>
 	</head>
 	<body class="bg-[#F7F2F2] dark:bg-[#09030E] transition duration-300 ease-in-out">
@@ -60,7 +59,7 @@ const { title, language, description } = Astro.props;
 <style is:global>
  
 	html {
-	  font-family: 'Poppins', sans-serif;
+	  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	}
 
 </style>

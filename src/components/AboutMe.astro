@@ -12,18 +12,20 @@ const t = useTranslations(lang);
 
 <!-- About me -->
 <article class="bg-white dark:bg-[#0D1116] dark:text-white relative border-2 dark:border-[#30363D] col-span-3 aspect-square md:aspect-auto md:row-span-2 rounded-3xl overflow-hidden p-2 md:p-4 transition duration-300 delay-75 ease-in-out">
-  <div class="float-right pt-2 pr-2">
-    <img loading="lazy" class="w-auto h-24 md:h-32 lg:h-36" src="/icon-luizack.png" alt="Avatar Luis Adrian">
-  </div>
+ 
+  
   <div class="lg:absolute lg:bottom-16">
-    <div class="md:w-8/12 p-2 md:px-8 md:py-4 flex flex-col justify-start md:justify-end">
-      <div class="flex flex-col md:gap-1 lg:gap-2">
-        <h1 class="text-3xl font-bold md:text-4xl lg:text-6xl">{t('about.im')}</h1>
-        <h2 class="text-[#e1a028] text-3xl font-bold md:text-4xl lg:text-6xl">Luis Adrian</h2>
+    <div class="flex gap-1 md:gap-8">
+      <div class="md:w-8/12 p-2 md:px-8 md:py-4 flex flex-col justify-start md:justify-end">
+        <div class="flex flex-col md:gap-1 lg:gap-2">
+          <h1 class="text-3xl font-bold md:text-4xl lg:text-6xl">{t('about.im')}</h1>
+          <h2 class="text-[#e1a028] text-3xl font-bold md:text-4xl lg:text-6xl">Luis Adrian</h2>
+        </div>
+        <p class="pt-2 lg:pt-4 md:text-xl">{t('about.description')}</p>
       </div>
-      <p class="pt-2 lg:pt-4 md:text-lg lg:text-xl">{t('about.description')}</p>
+      <img loading="lazy" class="w-auto h-24 mt-4 md:h-32 lg:h-36" src="/icon-luizack.png" alt="Avatar Luis Adrian">
     </div>
-    <p class="px-2 md:px-8 md:text-lg lg:text-xl hidden sm:block">
+    <p class="px-2 md:px-8 md:text-xl">
       {t('about.description-two')}
     </p>
   </div>
@@ -36,7 +38,7 @@ const t = useTranslations(lang);
 <DarkMode/>
 
 <!-- Linkend -->
-  <a href="https://www.linkedin.com/in/luis-adrian-nu%C3%B1ez-jaramillo-b31a0a1a5/" class="bg-[#0077b6]  border-2 dark:border-[#30363D] dark:bg-[#0353a4] text-white flex flex-col justify-center items-center rounded-2xl relative col-span-1 aspect-square text-center p-4 lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
+  <a href="https://www.linkedin.com/in/luis-adrian-nu%C3%B1ez-jaramillo-b31a0a1a5/" class="bg-[#0077b6] dark:bg-[#0353a4] text-white flex flex-col justify-center items-center rounded-2xl relative col-span-1 aspect-square text-center p-4 lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
     <div class="sm:scale-175">
       <svg xmlns="http://www.w3.org/2000/svg"  class="inline-flex w-8 md:w-10" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -50,8 +52,8 @@ const t = useTranslations(lang);
   </a>
 
   <!-- Portfolio projects -->
-   <a href="https://luizack.site/#proyectos" class="relative border-2 dark:border-[#30363D] md:aspect-auto rounded-2xl w-full col-span-2 overflow-hidden lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
-    <div class="w-full h-full bg-[#00000077] absolute">
+  <a href="https://luizack.site/#proyectos" class="relative md:aspect-auto rounded-2xl w-full col-span-2 overflow-hidden lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
+    <div class="w-full h-full bg-[#45320f67] absolute">
         <img loading="lazy" width="480" height="480" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/coding.gif" alt="Projects Luis Adrian">
     </div>
     <div class="absolute top-2 right-2 bg-white rounded-full p-1">
@@ -62,8 +64,8 @@ const t = useTranslations(lang);
       </svg>
     </div>
     <div class="w-full h-full absolute top-0 left-0 text-white p-4 z-10 pointer-events-none">
-      <h3 class="text-white text-sm md:text-xl lg:text-3xl font-bold">{t('projects-works')}</h3>
-      <p class="text-white text-sm md:text-md lg:text-2xl">{t('projects-description')}</p>
+      <h3 class="text-white text-sm md:text-xl lg:text-2xl font-bold">{t('projects-works')}</h3>
+      <p class="text-white text-sm md:text-md lg:text-xl">{t('projects-description')}</p>
     </div>
   </a>
 
@@ -71,7 +73,7 @@ const t = useTranslations(lang);
 
    <!-- Experience -->
   <article class="col-span-1 sm:col-span-1 flex flex-col justify-between gap-2 md:gap-4">
-  <a href="https://twitter.com/LuisAdrianNuez" class="text-white rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-black p-4 justify-center items-center border-2 dark:border-[#30363D] lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out"  target="_blank" rel="noopener noreferrer">
+  <a href="https://twitter.com/LuisAdrianNuez" class="text-white rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-black p-4 justify-center items-center dark:border-2 dark:border-[#30363D] lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out"  target="_blank" rel="noopener noreferrer">
      <div class="sm:scale-175">
        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -81,7 +83,7 @@ const t = useTranslations(lang);
      </div>
   </a>
 
-  <article class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#6DD2B7] p-4 text-white justify-center items-center border-2 dark:border-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out">
+  <article class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#6DD2B7] p-4 text-white justify-center items-center dark:border-2 dark:border-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out">
     <div class="flex justify-center items-center flex-col">
       <p class="text-4xl md:text-8xl font-bold">+3</p>
       <p class="text-xs md:text-xl uppercase font-semibold text-center">{t('experience-years')}</p>
@@ -92,7 +94,7 @@ const t = useTranslations(lang);
  <Weather/>
 
  <!-- Mail -->
- <a class="border-2 bg-[#D8858D] dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" href="mailto:luisadriannu13@gmail.com" target="_blank">
+ <a class="dark:border-2 bg-[#D8858D] dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" href="mailto:luisadriannu13@gmail.com" target="_blank">
   <div class="absolute top-2 right-2 bg-white rounded-full p-1">
      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black " width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -112,7 +114,7 @@ const t = useTranslations(lang);
 
   <!-- CV -->
   <a href="/assets/cv_luisadrian.pdf" class="border-2 bg-white dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square text-center font-bold md:text-xl lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
-   <div class="absolute top-2 right-2 dark:bg-white rounded-full p-1">
+   <div class="absolute top-2 right-2 bg-white rounded-full p-1">
       <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"></path>
@@ -131,8 +133,8 @@ const t = useTranslations(lang);
   </a>
 
   <!-- Github -->
-<a href="https://github.com/luisadriannu" target="_blank" rel="noopener noreferrer" class="relative rounded-2xl col-span-2 overflow-hidden border-2 dark:border-[#30363D] lg:hover:scale-[103%] w-full transition duration-300 delay-75 ease-in-out md:aspect-auto">
-  <div class="w-full h-full bg-[#00000077] absolute">
+<a href="https://github.com/luisadriannu" target="_blank" rel="noopener noreferrer" class="relative rounded-2xl col-span-2 overflow-hidden lg:hover:scale-[103%] w-full transition duration-300 delay-75 ease-in-out md:aspect-auto">
+  <div class="w-full h-full bg-[#0000005d] absolute">
     <img loading="lazy" width="498" height="280" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/giphy.gif" alt="GitHub Luis Adrian">
   </div>
   <div class="absolute top-2 right-2 bg-white rounded-full p-1">
@@ -143,8 +145,8 @@ const t = useTranslations(lang);
   </svg>
   </div>
   <div class="w-full h-full absolute top-0 left-0 text-white p-4 z-10 pointer-events-none">
-    <h2 class="text-white text-sm md:text-xl lg:text-3xl font-bold">Github</h2>
-    <p class="text-white text-sm md:text-md lg:text-2xl">{t("description-github")}</p>
+    <h2 class="text-white text-sm md:text-xl lg:text-2xl font-bold">Github</h2>
+    <p class="text-white text-sm md:text-md lg:text-xl">{t("description-github")}</p>
   </div>
 </a>
 

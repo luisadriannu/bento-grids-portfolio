@@ -108,9 +108,9 @@ function ShowTime() {
         hourConditional >= 8 && hourConditional <= 18
           ? "bg-[#089cffa4]"
           : "bg-[#001324]"
-      } w-full flex overflow-hidden bg-clip-padding text-white py-2 px-4 lg:p-8`}
+      } w-full flex overflow-hidden bg-clip-padding text-white px-4 lg:p-8`}
     >
-      <div class="flex flex-col justify-center md:h-full w-2/3 absolute lg:static z-10">
+      <div class="flex flex-col justify-center mt-3 md:mt-0 absolute md:h-full w-2/3 lg:static z-10 ">
         <div>
           <p class="text-lg md:text-5xl lg:text-7xl font-bold">
             {weather?.temp}°
