@@ -74,7 +74,7 @@ function ShowTime() {
   function getHoursConditional() {
     const currentTime = getCurrentHours();
     const ampm = currentTime.slice(-2);
-    const currentHour = parseInt(currentTime);
+    const currentHour = parseInt(currentTime) + 12;
 
     if (ampm === "PM" && currentHour !== 12) {
       return currentHour + 12;
