@@ -49,9 +49,10 @@ function ShowTime() {
   }, []);
 
   function getCurrentHours() {
-    let timeNow = new Date();
-    let hours = timeNow.getHours();
-    let minutes = timeNow.getMinutes();
+    const timeZone = "America/Mexico_City";
+    let timeNow = new Date().toLocaleString("es-MX", { timeZone: timeZone });
+    let hours = timeNow.split(" ")[1].split(":")[0];
+    let minutes = timeNow.split(" ")[1].split(":")[1];
     let ampm = "AM";
 
     if (hours >= 12) {

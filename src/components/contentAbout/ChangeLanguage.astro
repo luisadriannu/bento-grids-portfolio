@@ -3,7 +3,18 @@ import { getLangFromUrl } from '../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 ---
 
-<a href={lang === "en" ? "/es" : "/"} class="col-span-1 flex flex-col items-center justify-center rounded-2xl aspect-square bg-[#1c053a9c] text-white w-full dark:border-2 dark:border-[#30363D] dark:bg-[#0D1116] lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out cursor-pointer">
+<a href={lang === "en" ? "/es" : "/"} class="col-span-1 flex flex-col items-center justify-center rounded-2xl aspect-square bg-[#1c053a9c] text-white w-full dark:outline dark:outline-2 dark:outline-[#30363D] dark:bg-[#0D1116] lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out cursor-pointer relative">
+    <div class="absolute top-1 right-1 p-1">
+      <svg class="stroke-white w-4 md:w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M4 5h7"></path>
+        <path d="M9 3v2c0 4.418 -2.239 8 -5 8"></path>
+        <path d="M5 9c0 2.144 2.952 3.908 6.7 4"></path>
+        <path d="M12 20l4 -9l4 9"></path>
+        <path d="M19.1 18h-6.2"></path>
+      </svg>
+    </div>
+  
   <p class="font-semibold uppercase text-5xl md:text-8xl">{lang === "en" ? "EN" : "ES"}</p>
   <p class="font-bold transition duration-300 ease-in-out  flex gap-1">
     <span class={lang === "en" ? "text-[#e1a028]" : "text-white"}>EN</span>

@@ -161,7 +161,7 @@ export const DiscordStatus = () => {
         {statusEquivalent === "Desconectado" ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class=" w-4 h-4 md:scale-175 absolute top-2 left-2 md:static"
+            class=" w-4 h-4 md:scale-175 absolute top-2 left-2 md:top-3 md:left-3"
             viewBox="0 0 24 24"
             stroke-width="2"
             stroke="currentColor"
