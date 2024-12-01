@@ -35,10 +35,12 @@ if (today >= december26) {
     </p>
   </article>
 
+  <!-- Logic Dark Mode -->
   <DarkMode/>
-
+  
+  <!-- Logic Change Language -->
   <ChangeLanguage/>
-
+  
   <!-- Years of experience -->
   <article class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#6DD2B7] p-4 text-white justify-center items-center dark:outline dark:outline-2 dark:outline-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out">
     <div class="flex justify-center items-center flex-col">
@@ -46,7 +48,8 @@ if (today >= december26) {
       <p class="text-xs md:text-xl uppercase font-semibold text-center">{t('experience-years')}</p>
     </div>
   </article>
-
+  
+  <!-- Logic Discord Status -->
   <DiscordStatus client:visible/>
 
   <!-- Portfolio projects -->
@@ -67,6 +70,7 @@ if (today >= december26) {
     </div>
   </a>
 
+  <!-- Logic Spotify Status -->
   <SpotifyPresence/>
 
   <article class="col-span-1 sm:col-span-1 flex flex-col justify-between gap-2 md:gap-4">
@@ -102,6 +106,7 @@ if (today >= december26) {
     </a>
   </article>
 
+  <!-- Logic Weather -->
   <Weather/>
 
    <!-- Twitter -->
@@ -123,7 +128,7 @@ if (today >= december26) {
   </a>
 
   <!-- Instagram -->
-  <a class="bg-instagram dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" href="https://www.instagram.com/luisadriannu/" target="_blank">
+  <a class="bg-instagram dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" href="https://www.instagram.com/luisadriannu26" target="_blank">
     <div class="absolute top-2 right-2 bg-white rounded-full p-1">
       <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black w-2.5 md:w-4" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -153,6 +158,7 @@ if (today >= december26) {
         <path d="M17 7l-10 10"></path>
         <path d="M8 7l9 0l0 9"></path>
       </svg>
+      
     </div>
     <div class="w-full h-full absolute top-0 left-0 text-white p-4 z-10 pointer-events-none">
       <h2 class="text-white text-sm md:text-xl lg:text-2xl font-bold">Github</h2>
@@ -200,6 +206,17 @@ if (today >= december26) {
   </a>
 
     <!-- <Experience/> -->
+    <article class="border-2 bg-white dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white relative rounded-2xl overflow-hidden md:col-span-2 col-span-2 w-full transition duration-300 delay-75 ease-in-out md:aspect-auto">
+      <img loading="lazy" width="110" class="absolute right-0 p-4" src="/assets/experience-work-sfa.png" alt="Logo SFA">
+      <div class="w-full h-full absolute top-0 left-0 text-white p-4 z-10 pointer-events-none">
+        <h2 class="dark:text-white text-sm md:text-xl lg:text-2xl font-bold">{t('experience')}</h2>
+        <div class="w-80">
+          <h3 class="mt-1 text-xs font-bold">{t('sfa')}</h3>
+        </div>
+        <p class="my-2">Desarrollador Frontend</p>
+        <p>• Diseñé y desarrollé páginas web para el sitio oficial del Gobierno del Estado de Michoacán, garantizando cumplimiento con estándares de accesibilidad y usabilidad. </p>
+        <p class="mt-2">• Implementé soluciones técnicas que optimizaron el rendimiento de las páginas, reduciendo tiempos de carga y mejorando la interacción en dispositivos móviles y de escritorio.</p>
+      </div>
+    </article>
 
- 
-
+    

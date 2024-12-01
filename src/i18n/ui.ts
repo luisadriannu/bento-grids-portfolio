@@ -13,6 +13,8 @@ export const ui = {
     "description-github": "My Github profile, where I upload my projects.",
     "years-old": "Age",
     "years-old-2": "Years old",
+    experience: "Experience",
+    sfa: "SECRETARIAT OF FINANCE AND ADMINISTRATION",
   },
   es: {
     "about.im": "Hola, soy ",
@@ -26,5 +28,7 @@ export const ui = {
     "description-github": "Mi perfil de Github, donde subo mis proyectos.",
     "years-old": "Edad",
     "years-old-2": "Años",
+    experience: "Experiencia",
+    sfa: "SECRETARÍA DE FINANZAS Y ADMINISTRACIÓN",
   },
 } as const;

@@ -25,7 +25,7 @@ export const SpotifyStatus = () => {
 
     fetchData();
 
-    const interval = setInterval(fetchData, 60000);
+    const interval = setInterval(fetchData, 10000);
 
     return () => {
       clearInterval(interval);
@@ -49,7 +49,7 @@ export const SpotifyStatus = () => {
   }
 
   return (
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 ">
       <div>
         <p class="text-[#ffffff] font-bold text-xs lg:text-2xl md:text-xl">
           {activityData?.data?.spotify === null
