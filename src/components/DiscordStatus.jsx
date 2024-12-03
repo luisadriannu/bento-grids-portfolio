@@ -94,7 +94,7 @@ export const DiscordStatus = () => {
           : status === "idle"
           ? "bg-[#fdba33d8] dark:bg-[#E2A22D]"
           : "bg-[#f96568] dark:bg-[#D13F40]"
-      } flex flex-col justify-center items-center rounded-2xl relative col-span-1 md:col-span-1 p-4 text-center aspect-square text-white overflow-hidden transition duration-300 delay-75 ease-in-out`}
+      } flex flex-col justify-center items-center rounded-2xl relative col-span-1 md:col-span-1 p-4 text-center aspect-square text-white overflow-hidden transition duration-300 delay-75 ease-in-out shadow-md`}
     >
       {/* <p class="hidden md:block text-xs absolute top-4 left-4">
         @{userDiscord}
