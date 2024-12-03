@@ -25,7 +25,7 @@ export const DiscordStatus = () => {
 
     fetchData();
 
-    const interval = setInterval(fetchData, 60000);
+    const interval = setInterval(fetchData, 10000);
 
     return () => {
       clearInterval(interval);
@@ -83,19 +83,22 @@ export const DiscordStatus = () => {
   };
 
   const status = activityData?.data?.discord_status;
-
   const statusEquivalent = statusLanguages[status]?.[language];
+  // const userDiscord = activityData?.data?.discord_user?.global_name;
 
   return (
     <article
       class={`${
         status === "online"
-          ? "bg-[#5765F2] dark:bg-[#3730A3]"
+          ? "bg-[#7F8AF5] dark:bg-[#3730A3]"
           : status === "idle"
           ? "bg-[#fdba33d8] dark:bg-[#E2A22D]"
           : "bg-[#f96568] dark:bg-[#D13F40]"
       } flex flex-col justify-center items-center rounded-2xl relative col-span-1 md:col-span-1 p-4 text-center aspect-square text-white overflow-hidden transition duration-300 delay-75 ease-in-out`}
     >
+      {/* <p class="hidden md:block text-xs absolute top-4 left-4">
+        @{userDiscord}
+      </p> */}
       {status === "online" ? (
         <img
           src="../assets/icon-account-discord-online.jpg"

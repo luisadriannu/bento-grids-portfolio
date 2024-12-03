@@ -10,18 +10,27 @@ import Experience from "./contentAbout/Experience.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-let age = 24;
+const birthDate = "1999-12-26"; 
 
-let today = new Date();
-let december26 = new Date(today.getFullYear(), 11, 26); 
-
-if (today >= december26) {
-    age += 1;
+function calculateAge(birthDate) {
+    const today = new Date();
+    const birth = new Date(birthDate);
+    
+    let age = today.getFullYear() - birth.getFullYear();
+    
+    const hasBirthdayPassed =
+        today.getMonth() > birth.getMonth() ||
+        (today.getMonth() === birth.getMonth() && today.getDate() >= birth.getDate());
+    
+    if (!hasBirthdayPassed) {
+        age -= 1;
+    }
+    
+    return age;
 }
 ---
-
   <!-- About me -->
-  <article class="bg-white dark:bg-[#0D1116] dark:text-white relative border-2 dark:border-[#30363D] col-span-3 aspect-square md:aspect-auto md:row-span-2 rounded-3xl overflow-hidden p-2 md:p-4 transition duration-300 delay-75 ease-in-out">
+  <article class="bg-[#FAF3EB] dark:bg-[#0D1116] dark:text-white relative dark:outline dark:outline-2 shadow-md dark:outline-[#30363D] col-span-3 aspect-square md:aspect-auto md:row-span-2 rounded-3xl overflow-hidden p-2 md:p-4 transition duration-300 delay-75 ease-in-out">
     <div class="p-2 md:px-8 md:py-4">
       <div class="flex flex-col md:gap-1 lg:gap-2">
         <h1 class="text-3xl font-bold md:text-4xl lg:text-6xl">{t('about.im')}</h1>
@@ -42,7 +51,7 @@ if (today >= december26) {
   <ChangeLanguage/>
   
   <!-- Years of experience -->
-  <article class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#6DD2B7] p-4 text-white justify-center items-center dark:outline dark:outline-2 dark:outline-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out">
+<article class="dark:outline dark:outline-2 shadow-md dark:outline-[#30363D] rounded-2xl flex relative overflow-hidden aspect-square bg-[#FFF4CC] p-4 text-black dark:text-white justify-center items-center  dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out">
     <div class="flex justify-center items-center flex-col">
       <p class="text-4xl md:text-8xl font-bold">+3</p>
       <p class="text-xs md:text-xl uppercase font-semibold text-center">{t('experience-years')}</p>
@@ -76,16 +85,16 @@ if (today >= december26) {
   <article class="col-span-1 sm:col-span-1 flex flex-col justify-between gap-2 md:gap-4">
 
     <!-- Years old -->
-    <article class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#000000d8] p-4 text-white justify-center items-center dark:outline dark:outline-2 dark:outline-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out">
+    <article class="dark:outline dark:outline-2 shadow-md dark:outline-[#30363D] rounded-2xl flex relative overflow-hidden aspect-square bg-[#FAF3EB] p-4 text-black dark:text-white justify-center items-center dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out">
       <div class="flex justify-center items-center flex-col">
         <p class="text-sm md:text-xl uppercase">{t('years-old')}</p>
-        <p class="text-4xl md:text-8xl uppercase font-bold text-center">{age}</p>
+        <p class="text-4xl md:text-8xl uppercase font-bold text-center">{calculateAge(birthDate)}</p>
         <p class="text-sm md:text-xl uppercase font-semibold text-center">{t('years-old-2')}</p>
       </div>
     </article>
 
     <!-- Linkend -->
-    <a href="https://www.linkedin.com/in/luis-adrian-nu%C3%B1ez-jaramillo-b31a0a1a5/" class="bg-[#0077b6] dark:bg-[#0353a4] text-white flex flex-col justify-center items-center rounded-2xl relative col-span-1 aspect-square text-center p-4 lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
+    <a href="https://www.linkedin.com/in/luis-adrian-nu%C3%B1ez-jaramillo-b31a0a1a5/" class="bg-[#6D97C9] dark:bg-[#0353a4] text-white flex flex-col justify-center items-center rounded-2xl relative col-span-1 aspect-square text-center p-4 lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
       <div class="absolute top-2 right-2 bg-white rounded-full p-1">
         <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black w-2.5 md:w-4" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -167,8 +176,8 @@ if (today >= december26) {
   </a>
 
   <!-- Mail -->
-  <a class="dark:outline dark:outline-2 dark:outline-[#30363D] bg-[#D8858D] dark:bg-[#0D1116] dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" href="mailto:luisadriannu13@gmail.com" target="_blank">
-    <div class="absolute top-2 right-2 bg-white rounded-full p-1">
+  <a class="dark:outline dark:outline-2 shadow-md dark:outline-[#30363D] bg-[#FADCD9] dark:bg-[#0D1116] dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" href="mailto:luisadriannu13@gmail.com" target="_blank">
+    <div class="absolute top-2 right-2 shadow-md bg-white rounded-full p-1">
       <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black w-2.5 md:w-4" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
         <path d="M17 7l-10 10"></path>
@@ -177,7 +186,7 @@ if (today >= december26) {
     </div>
 
     <div class="sm:scale-175">
-      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-white inline-flex w-10" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black dark:stroke-white inline-flex w-10" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
         <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
         <path d="M3 7l9 6l9 -6"></path>
@@ -186,8 +195,8 @@ if (today >= december26) {
   </a>
 
   <!-- CV -->
-  <a href="/assets/cv_luisadrian.pdf" class="border-2 bg-white dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square text-center font-bold md:text-xl lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
-   <div class="absolute top-2 right-2 bg-white rounded-full p-1">
+  <a href="/assets/cv_luisadrian.pdf" class="border-2 dark:border-0 dark:outline dark:outline-2 shadow-md dark:outline-[#30363D] bg-[#FAF3EB] dark:bg-[#0D1116] dark:text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square text-center font-bold md:text-xl lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
+   <div class="absolute top-2 shadow-md right-2 bg-white rounded-full p-1">
       <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black w-2.5 md:w-4" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
         <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"></path>
@@ -205,18 +214,68 @@ if (today >= december26) {
      </div>
   </a>
 
-    <!-- <Experience/> -->
-    <article class="border-2 bg-white dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white relative rounded-2xl overflow-hidden md:col-span-2 col-span-2 w-full transition duration-300 delay-75 ease-in-out md:aspect-auto">
-      <img loading="lazy" width="110" class="absolute right-0 p-4" src="/assets/experience-work-sfa.png" alt="Logo SFA">
-      <div class="w-full h-full absolute top-0 left-0 text-white p-4 z-10 pointer-events-none">
-        <h2 class="dark:text-white text-sm md:text-xl lg:text-2xl font-bold">{t('experience')}</h2>
-        <div class="w-80">
-          <h3 class="mt-1 text-xs font-bold">{t('sfa')}</h3>
-        </div>
-        <p class="my-2">Desarrollador Frontend</p>
-        <p>• Diseñé y desarrollé páginas web para el sitio oficial del Gobierno del Estado de Michoacán, garantizando cumplimiento con estándares de accesibilidad y usabilidad. </p>
-        <p class="mt-2">• Implementé soluciones técnicas que optimizaron el rendimiento de las páginas, reduciendo tiempos de carga y mejorando la interacción en dispositivos móviles y de escritorio.</p>
-      </div>
-    </article>
+    <!-- Experience -->
+  <!-- <article  class="rounded-2xl flex relative col-span-2 overflow-hidden aspect-square shadow-sm bg-[#000000d8] p-4 text-white justify-center items-center dark:outline dark:outline-2 dark:outline-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out"> 
+    <p>Experiencia</p>
+  </article> -->
+
+  <!-- Project - Mob Studio -->
+  <article  class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#000000d8] p-4 text-white justify-center items-center dark:outline dark:outline-2 dark:outline-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out"> 
+    <p class="absolute top-4 left-4 font-bold">Mob Studio</p>
+    <img src="/assets/project-icon-mob.jpg" class="rounded-xl absolute top-2 right-2 h-8 w-8" alt="Icono Mob Studio">
+    <!-- <img src="/assets/screen-project-mob-studio.png" class="w-14 h-36" alt="Captura de pantalla del proyecto Mob Studio"> -->
+  </article>
+  
+  <!-- Project - Hecho con amor -->
+  <article  class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#000000d8] p-4 text-white justify-center items-center dark:outline dark:outline-2 dark:outline-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out"> 
+    <p>Hecho con amor</p>
+  </article>
+  
+  <!-- Experience Tools -->
+ <article class="dark:outline dark:outline-2 shadow-md dark:outline-[#30363D]  rounded-2xl flex relative col-span-2 md:col-span-2 overflow-hidden bg-[#FFF4CC] p-4 text-white justify-center items-center dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out"> 
+  <h2 class="hidden md:block absolute top-3 left-3 text-xs md:text-lg font-bold text-black dark:text-white">{t("experience-tools")}</h2>
+  <div class="flex items-center justify-between gap-3 w-full bg-[#FAF3EB] dark:bg-[#3e3f41] p-4 rounded-lg shadow-lg border-2 dark:border-0 snap-x overflow-x-auto flex-nowrap">
+    <!-- JAVASCRIPT -->
+    <img loading="lazy" class="rounded-lg w-8 h-8 md:w-10 md:h-10" src="/assets/tool-js.png" alt="Lenguaje Javascript">
+    <!-- ASTRO -->
+    <img loading="lazy" class="rounded-lg w-8 h-8 md:w-8 md:h-10" src="/assets/tool-astro.png" alt="Framework Astro">
+    <!-- NEXTJS -->
+    <img loading="lazy" class="rounded-lg w-8 h-8 md:w-10 md:h-10" src="/assets/tool-next.png" alt="Framework NextJS">
+    <!-- REACT -->
+    <img loading="lazy" class="rounded-lg w-8 h-8 md:w-10 md:h-10" src="/assets/tool-react.png" alt="Librería React">
+    <!-- TAILWIND -->
+    <img loading="lazy" class="rounded-lg w-7 h-7 md:w-9 md:h-8" src="/assets/tool-tailwind.png" alt="Framework de diseño Tailwind">
+    <!-- BOOTSTRAP -->
+    <img loading="lazy" class="rounded-lg w-8 h-7 md:w-10 md:h-9" src="/assets/tool-bootstrap.png" alt="Framework de diseño Bootstrap">
+    <!-- FIGMA -->
+      <img loading="lazy" class="w-6 h-6 md:w-5 md:h-7" src="/assets/tool-figma.png" alt="Herramienta de diseño Figma">
+  </div>
+</article>
+
+<!-- Project JECAL  -->
+  <article  class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#000000d8] p-4 text-white justify-center items-center dark:outline dark:outline-2 dark:outline-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out"> 
+    <p>JECAL</p>
+  </article>
+
+  <!-- PROJECT TAPICERIA -->
+  <article  class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#000000d8] p-4 text-white justify-center items-center dark:outline dark:outline-2 dark:outline-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out"> 
+    <p>Tapiceria Miryta</p>
+  </article>
+
+  <!-- ANOTHER PROJECT -->
+  <!-- <article  class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#000000d8] p-4 text-white justify-center items-center dark:outline dark:outline-2 dark:outline-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out"> 
+    <p>JECAL</p>
+  </article> -->
+
+  <!-- EXPERIENCE -->
+  <article class="dark:outline dark:outline-2 shadow-md dark:outline-[#30363D] dark:bg-[#0D1116] relative p-3 rounded-2xl md:col-span-2 col-span-2 row-span-1 overflow-hidden bg-[#ce2e2e8f] transition duration-300 delay-75 ease-in-out">
+  <h2 class="hidden md:block absolute top-3 left-3 text-xs md:text-lg font-bold text-black dark:text-white">{t("experience")}</h2>
+  <h3 class="text-black dark:text-white pt-8 text-sm font-bold">{t("title-work-sfa")}</h3>
+    <img loading="lazy" src="/assets/experience-work-sfa.png" class="w-16 h-16 absolute top-1 right-1" alt="Logo Secretaría de Finanzas">
+  <br>
+  <p class="text-black dark:text-white text-xs">• {t("subtitle-sfa")}</p>
+  <br>
+  <p class="text-black dark:text-white text-xs">• {t("subtitle-sfa-2")}</p>
+</article>
 
     

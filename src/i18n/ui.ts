@@ -13,8 +13,13 @@ export const ui = {
     "description-github": "My Github profile, where I upload my projects.",
     "years-old": "Age",
     "years-old-2": "Years old",
+    "experience-tools": "Experience tools",
     experience: "Experience",
-    sfa: "SECRETARIAT OF FINANCE AND ADMINISTRATION",
+    "title-work-sfa": "SECRETARIAT OF FINANCE AND ADMINISTRATION",
+    "subtitle-sfa":
+      "I designed and developed web pages for the official site of the Government of the State of Michoacán, guaranteeing compliance with accessibility and usability standards.",
+    "subtitle-sfa-2":
+      "I implemented technical solutions that optimized page performance, reducing loading times and improving interaction on mobile and desktop devices.",
   },
   es: {
     "about.im": "Hola, soy ",
@@ -28,7 +33,12 @@ export const ui = {
     "description-github": "Mi perfil de Github, donde subo mis proyectos.",
     "years-old": "Edad",
     "years-old-2": "Años",
+    "experience-tools": "Herramientas de experiencia",
     experience: "Experiencia",
-    sfa: "SECRETARÍA DE FINANZAS Y ADMINISTRACIÓN",
+    "title-work-sfa": "SECRETARÍA DE FINANZAS Y ADMINISTRACIÓN",
+    "subtitle-sfa":
+      "Diseñé y desarrollé páginas web para el sitio oficial del Gobierno del Estado de Michoacán, garantizando cumplimiento con estándares de accesibilidad y usabilidad. ",
+    "subtitle-sfa-2":
+      "Implementé soluciones técnicas que optimizaron el rendimiento de las páginas, reduciendo tiempos de carga y mejorando la interacción en dispositivos móviles y de escritorio.",
   },
 } as const;

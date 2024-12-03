@@ -160,3 +160,18 @@
       #fec66d 100%
     );
 }
+
+/* Style Scrollbar */
+/* Estilo del scrollbar */
+.overflow-x-auto::-webkit-scrollbar {
+  height: 8px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #6b7280; /* Color gris */
+  border-radius: 4px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: #4b5563; /* Color más oscuro al pasar el cursor */
+}

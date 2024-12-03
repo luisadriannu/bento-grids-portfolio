@@ -40,12 +40,25 @@ function ShowTime() {
   // HORAS
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentHours(getCurrentHours());
+      const timeZone = "America/Mexico_City";
+      const now = new Date();
+
+      const localTime = new Date(now.toLocaleString("en-US", { timeZone }));
+
+      const hours = localTime.getHours();
+      const minutes = localTime.getMinutes();
+
+      setCurrentHours(() => {
+        const displayHours = hours % 12 || 12;
+        const displayMinutes = minutes.toString().padStart(2, "0");
+        const displayAmPm = hours >= 12 ? "PM" : "AM";
+        return `${displayHours}:${displayMinutes} ${displayAmPm}`;
+      });
+
+      setHourConditional(hours);
     }, 1000);
 
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   function getCurrentHours() {
@@ -72,17 +85,20 @@ function ShowTime() {
   }
 
   function getHoursConditional() {
-    const currentTime = getCurrentHours();
-    const ampm = currentTime.slice(-2);
-    const currentHour = parseInt(currentTime) + 12;
+    const timeZone = "America/Mexico_City";
+    const timeNow = new Date().toLocaleString("es-MX", { timeZone: timeZone });
+    const [time, ampm] = timeNow.split(" ")[1].split(" ");
+    let [hours, minutes] = time.split(":").map(Number);
 
-    if (ampm === "PM" && currentHour !== 12) {
-      return currentHour + 12;
-    } else if (ampm === "AM" && currentHour === 12) {
-      return 0;
-    } else {
-      return currentHour;
+    if (ampm === "PM" && hours !== 12) {
+      hours += 12;
     }
+
+    if (ampm === "AM" && hours === 12) {
+      hours = 0;
+    }
+
+    return hours;
   }
 
   if (isLoading) {
